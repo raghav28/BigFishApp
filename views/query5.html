@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="angularjsNodejsTutorial">
+    <head>
+        <title>BigFish</title>
+                <!-- style -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="images/iconFishMenu.png"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- node js -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+        <script src="javascripts/app.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- plotly graphs -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+            body, html {
+                height: 100%;
+                line-height: 1.8;
+            }
+            .w3-bar .w3-button {
+                padding: 16px;
+            }
+        </style>
+
+    </head>
+
+
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+          <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <div class="w3-bar w3-white w3-card" id="myNavbar">
+              <a ng-href="/" > <img src="/images/iconFish.png" align="left" style="width:8%" alt="return home"></a>
+              <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+              <a ng-href="/#About" class="w3-bar-item w3-button">ABOUT</a>
+                <div class="w3-dropdown-hover">
+                  <button class="w3-button" font-family="Raleway"><i class="fa fa-search"></i> QUERIES</button>
+                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a ng-href="/query1" class="w3-bar-item w3-button">Query 1</a>
+                    <a ng-href="/query2" class="w3-bar-item w3-button">Query 2</a>
+                    <a ng-href="/query3" class="w3-bar-item w3-button">Query 3</a>
+                    <a ng-href="/query4" class="w3-bar-item w3-button">Query 4</a>
+                    <a ng-href="/query5" class="w3-bar-item w3-button">Query 5</a>
+                    <a ng-href="/query6" class="w3-bar-item w3-button">Query 6</a>
+                    <a ng-href="/query7" class="w3-bar-item w3-button">Query 7</a>
+                    <a ng-href="/query8" class="w3-bar-item w3-button">Query 8</a>
+                    <a ng-href="/query_times" class="w3-bar-item w3-button">Performance</a>
+
+                  </div>
+                </div>
+              <!--<a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a> -->
+              <a ng-href="/#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> OUR WORK</a>
+              <a ng-href="/#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sidebar on small screens when clicking the menu icon -->
+        <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+          <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+          <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+          <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+          <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+          <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+        </nav>
+
+
+
+    <body data-spy="scroll" data-target=".scrollspy">
+
+<div class="w3-container" style="padding:30px 30px" id="about">
+        <BR><BR><BR><BR>
+        <header>Query 5 </header>  <br>
+        <p>
+            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>
+            what percentage of parent companies’ and children companies’ patents fall in each category?
+
+
+
+        <div ng-controller="showfamilyController">
+        <p>
+         <select ng-model = "Parents" ng-options= "x for x in parentUniqueList" ng-change = "Change(Parents)">
+                <option selected disabled value="">---Parent Company---</option>
+            </select>
+            <select ng-model = "Children" ng-options = "x for x in childrenList">
+                <!-- ng-options= "x.ChildCompany for x in familymembers" -->
+                <option selected disabled value="">---Child Company---</option>
+            </select>
+            <button type="button" ng-click="ShowPie(Parents,Children)" class="button">Show Pie Charts</button>
+        </p>
+        <div ng-hide = "DoHide">
+          <img  src = {{parentImage}} width = "30%" height="30%">
+        </div>
+        </br>
+        </br>
+        </br>
+        <div ng-hide = "DoHide">
+            <img src = {{childImage}} width = "30%" height="30%">
+        </div>
+
+
+
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
